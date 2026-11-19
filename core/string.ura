@@ -1,0 +1,5 @@
+struct String from Array<char>:
+    use "./string/create"
+    use "./string/search"
+    use "./string/transform"
+    use "./string/operators"

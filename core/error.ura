@@ -1,0 +1,14 @@
+struct Error:
+    message String
+
+    pub fn create(message String) Error:
+        e Error
+        e.message = message
+        return e
+
+    operator =(other &Error):
+        self.message = other.message
+
+fn uncaught(error &Error) i32:
+    errput(error.message.chars())
+    return 1

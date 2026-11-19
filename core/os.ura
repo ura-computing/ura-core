@@ -1,0 +1,12 @@
+struct Os:
+    argc i32
+    argv Array<String>
+
+    pub fn create() Os:
+        res Os
+        res.argc = ura::argc
+        for i in Range::create(0, ura::argc):
+            res.argv.append(String::create(ura::argv[i]))
+        return res
+
+os Os = Os::create()

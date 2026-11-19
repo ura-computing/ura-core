@@ -1,0 +1,10 @@
+template<T>:
+    struct Array:
+        data T[]
+        count i32
+        cap i32
+
+        use "./array/memory"
+        use "./array/modify"
+        use "./array/access"
+        use "./array/operators"

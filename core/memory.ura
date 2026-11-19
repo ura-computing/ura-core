@@ -1,0 +1,9 @@
+template<T>:
+    fn new(count i32) T[]:
+        return memory_alloc(count * sizeof(T)) as T[]
+
+    fn copy(dst T[], src T[], count i32):
+        memory_copy(dst as i8[], src as i8[], count * sizeof(T))
+
+    fn free(data T[]):
+        memory_free(data as i8[])

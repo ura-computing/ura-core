@@ -1,0 +1,24 @@
+operator [](index i32) &T:
+    self.own()
+    return &self.data[index]
+
+operator =(other &Array):
+    self.clear()
+    self.reserve(other.count)
+    i i32 = 0
+    while i < other.count:
+        self.data[i] = other.data[i]
+        i += 1
+    self.count = other.count
+
+operator in(i &i32, x &T) bool:
+    if i >= self.count:
+        return False
+    x = self.data[i]
+    i += 1
+    return True
+
+operator drop():
+    self.clear()
+    if self.cap > 0:
+        free<T>(self.data)

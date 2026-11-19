@@ -1,0 +1,28 @@
+struct Range:
+    start i32
+    stop i32
+    step i32
+
+    pub fn create(start i32, stop i32) Range:
+        r Range
+        r.start = start
+        r.stop = stop
+        r.step = 1
+        if stop < start:
+            r.step = -1
+        return r
+
+    pub fn create(start i32, stop i32, step i32) Range:
+        r Range
+        r.start = start
+        r.stop = stop
+        r.step = step
+        return r
+
+    operator in(i &i32, x &i32) bool:
+        x = self.start + i * self.step
+        done bool = (self.step > 0 and x >= self.stop) or (self.step < 0 and x <= self.stop)
+        if done:
+            return False
+        i += 1
+        return True
