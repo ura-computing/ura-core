@@ -95,7 +95,7 @@ This adds one line to your project's `ura.conf`. There's nothing to `use`: the c
 |---|---|---|---|
 | array | automatic | `Array<T>`, `append`, `insert`, `pop`, `first`, `last`, `size`, `reverse`, `[i]` | grows by `count * 2 + 4` |
 | string | automatic | `String`, `String::create`, `+`, `upper`, `trim`, `find`, `replace`, `substr` | `struct String from Array<char>` |
-| range | automatic | `Range::create(start, stop[, step])` | counts down when `stop < start` |
+| range | automatic | `Range::create(0, 10)`, `Range::create(0, 10, 2)` | counts down when `stop < start` |
 | error | automatic | `Error::create(message)`, `throw`, `try` / `catch` | uncaught errors exit with code 1 |
 | os | automatic | `os.argc`, `os.argv` | `argv` is an `Array<String>` |
 | memory | automatic | `new<T>(count)`, `copy<T>`, `free<T>` | what `Array` is built on |
@@ -183,32 +183,17 @@ Array<T>                                   String  (struct String from Array<cha
 - **Values own, references borrow.** `b = a` copies through `operator =`. A temporary, like the result of `+`, is moved instead of copied.
 - **Drop at the end of the block.** Every `Array` and `String` is freed when its block ends, in reverse order.
 
-```mermaid
-flowchart LR
-    A["literal<br/>[1, 2, 3]<br/>cap = 0, stack"]:::stack -->|"first append"| B["reserve(3 * 2 + 4)<br/>copy to heap"]:::step
-    B --> C["Array<br/>count = 4, cap = 10, heap"]:::heap
-    C -->|"b = a"| D["operator =<br/>deep copy"]:::step
-    C -->|"return / temporary"| E["moved<br/>no copy"]:::step
-    C -->|"block ends"| F["operator drop<br/>free"]:::done
-    classDef stack fill:#2d3748,stroke:#2F74E8,color:#fff
-    classDef heap fill:#2F74E8,stroke:#2d3748,color:#fff
-    classDef step fill:#f4f8fb,stroke:#2F74E8,color:#1a202c
-    classDef done fill:#4a5568,stroke:#2F74E8,color:#fff
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ownership-dark.svg">
+  <img src="assets/ownership-light.svg" alt="An array literal starts on the stack, the first append moves it to the heap, then it is copied, moved or freed">
+</picture>
 
 ## The ura standard library
 
-```mermaid
-flowchart TD
-    P["your project<br/>ura.conf"]:::you --> C["ura-core<br/>Array, String, Range"]:::here
-    P --> X["ura-posix<br/>files, sockets, time"]:::lib
-    P --> M["ura-math<br/>libm"]:::lib
-    P --> G["ura-graphics<br/>SDL2, raylib, OpenGL"]:::lib
-    X --> M
-    classDef you fill:#4a5568,stroke:#2F74E8,color:#fff
-    classDef here fill:#2F74E8,stroke:#2d3748,color:#fff
-    classDef lib fill:#f4f8fb,stroke:#2F74E8,color:#1a202c
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ecosystem-dark.svg">
+  <img src="assets/ecosystem-light.svg" alt="A project depends on ura-core, ura-posix, ura-math and ura-graphics; ura-posix uses ura-math">
+</picture>
 
 | Repo | Version | What | Depends on |
 |---|---|---|---|
