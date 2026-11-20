@@ -1,15 +1,19 @@
 # ura-core
 
-The core of ura: Array, String, Range, Os and Error. Every program loads it by itself.
+The core of [ura](https://github.com/mohammedhrima/ura-lang): Array, String, Range, Os and Error. Every program that depends on it loads it by itself.
 
 | package | use it with |
 |---|---|
-| core | `use "@/core"` |
+| core | loaded automatically |
 
 ## Install
 
-Add it to your project's `ura-config`, then run `ura install`:
+```
+ura install ura-core 0.1.1 https://github.com/mohammedhrima/ura-core
+```
+
+It adds this line to your project's `ura.conf`:
 
 ```ura
-@dependency "ura-core" "0.1.0"
+@dependency "ura-core" "0.1.1" "https://github.com/mohammedhrima/ura-core"
 ```
