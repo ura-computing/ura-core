@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-519ABA" alt="version 0.1.0">
-  <img src="https://img.shields.io/badge/ura-standard%20library-519ABA" alt="ura standard library">
+  <img src="https://img.shields.io/badge/version-0.1.0-2F74E8" alt="version 0.1.0">
+  <img src="https://img.shields.io/badge/ura-standard%20library-2F74E8" alt="ura standard library">
   <img src="https://img.shields.io/badge/dependencies-none-555" alt="no dependencies">
-  <img src="https://img.shields.io/badge/written%20in-ura-519ABA" alt="written in ura">
+  <img src="https://img.shields.io/badge/written%20in-ura-2F74E8" alt="written in ura">
 </p>
 
 ---
@@ -190,10 +190,10 @@ flowchart LR
     C -->|"b = a"| D["operator =<br/>deep copy"]:::step
     C -->|"return / temporary"| E["moved<br/>no copy"]:::step
     C -->|"block ends"| F["operator drop<br/>free"]:::done
-    classDef stack fill:#2d3748,stroke:#519ABA,color:#fff
-    classDef heap fill:#519ABA,stroke:#2d3748,color:#fff
-    classDef step fill:#f4f8fb,stroke:#519ABA,color:#1a202c
-    classDef done fill:#4a5568,stroke:#519ABA,color:#fff
+    classDef stack fill:#2d3748,stroke:#2F74E8,color:#fff
+    classDef heap fill:#2F74E8,stroke:#2d3748,color:#fff
+    classDef step fill:#f4f8fb,stroke:#2F74E8,color:#1a202c
+    classDef done fill:#4a5568,stroke:#2F74E8,color:#fff
 ```
 
 ## The ura standard library
@@ -205,9 +205,9 @@ flowchart TD
     P --> M["ura-math<br/>libm"]:::lib
     P --> G["ura-graphics<br/>SDL2, raylib, OpenGL"]:::lib
     X --> M
-    classDef you fill:#4a5568,stroke:#519ABA,color:#fff
-    classDef here fill:#519ABA,stroke:#2d3748,color:#fff
-    classDef lib fill:#f4f8fb,stroke:#519ABA,color:#1a202c
+    classDef you fill:#4a5568,stroke:#2F74E8,color:#fff
+    classDef here fill:#2F74E8,stroke:#2d3748,color:#fff
+    classDef lib fill:#f4f8fb,stroke:#2F74E8,color:#1a202c
 ```
 
 | Repo | Version | What | Depends on |
