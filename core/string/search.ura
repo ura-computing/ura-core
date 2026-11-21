@@ -1,3 +1,11 @@
+fn compare(other &String) i32:
+    i i32 = 0
+    while i < self.count and i < other.count:
+        if self.data[i] != other.data[i]:
+            return (self.data[i] as i32) - (other.data[i] as i32)
+        i += 1
+    return self.count - other.count
+
 fn matches_at(index i32, text i8[]) bool:
     j i32 = 0
     while text[j] != 0:

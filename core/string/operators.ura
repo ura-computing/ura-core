@@ -1,47 +1,42 @@
-fn compare(other &String) i32:
+operator ==(left &String, right &String) bool:
+    return left.compare(right) == 0
+
+operator !=(left &String, right &String) bool:
+    return left.compare(right) != 0
+
+operator <(left &String, right &String) bool:
+    return left.compare(right) < 0
+
+operator >(left &String, right &String) bool:
+    return left.compare(right) > 0
+
+operator ==(left &String, right i8[]) bool:
+    return left.count == String::length_of(right) and left.matches_at(0, right)
+
+operator !=(left &String, right i8[]) bool:
+    return not (left == right)
+
+operator =(left &String, right i8[]):
+    left.assign(right)
+
+operator =(left &i8[], right &String):
+    left = right.chars()
+
+operator +=(left &String, right i8[]):
+    left.join(right)
+
+operator +=(left &String, right &String):
     i i32 = 0
-    while i < self.count and i < other.count:
-        if self.data[i] != other.data[i]:
-            return (self.data[i] as i32) - (other.data[i] as i32)
-        i += 1
-    return self.count - other.count
-
-operator ==(other &String) bool:
-    return self.compare(other) == 0
-
-operator !=(other &String) bool:
-    return self.compare(other) != 0
-
-operator <(other &String) bool:
-    return self.compare(other) < 0
-
-operator >(other &String) bool:
-    return self.compare(other) > 0
-
-operator ==(text i8[]) bool:
-    return self.count == String::length_of(text) and self.matches_at(0, text)
-
-operator !=(text i8[]) bool:
-    return not (self == text)
-
-operator =(text i8[]):
-    self.assign(text)
-
-operator +=(text i8[]):
-    self.join(text)
-
-operator +=(other &String):
-    i i32 = 0
-    while i < other.count:
-        self.append(other.data[i])
+    while i < right.count:
+        left.append(right.data[i])
         i += 1
 
-operator +(text i8[]) String:
-    res String = self
-    res.join(text)
+operator +(left &String, right i8[]) String:
+    res String = left
+    res.join(right)
     return res
 
-operator +(other &String) String:
-    res String = self
-    res += other
+operator +(left &String, right &String) String:
+    res String = left
+    res += right
     return res

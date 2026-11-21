@@ -7,4 +7,5 @@ template<T>:
         use "./array/memory"
         use "./array/modify"
         use "./array/access"
-        use "./array/operators"
+
+    use "./array/operators"

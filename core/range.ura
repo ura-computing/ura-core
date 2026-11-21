@@ -19,10 +19,10 @@ struct Range:
         r.step = step
         return r
 
-    operator in(i &i32, x &i32) bool:
-        x = self.start + i * self.step
-        done bool = (self.step > 0 and x >= self.stop) or (self.step < 0 and x <= self.stop)
-        if done:
-            return False
-        i += 1
-        return True
+operator in(range &Range, i &i32, x &i32) bool:
+    x = range.start + i * range.step
+    done bool = (range.step > 0 and x >= range.stop) or (range.step < 0 and x <= range.stop)
+    if done:
+        return False
+    i += 1
+    return True

@@ -6,8 +6,8 @@ struct Error:
         e.message = message
         return e
 
-    operator =(other &Error):
-        self.message = other.message
+operator =(left &Error, right &Error):
+    left.message = right.message
 
 fn uncaught(error &Error) i32:
     io::err(error.message)
