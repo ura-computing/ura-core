@@ -1,0 +1,25 @@
+@if os == "windows":
+    proto _write(fd i32, text i8[], count u32) i32
+    proto _read(fd i32, text i8[], count u32) i32
+    fn write(fd i32, text i8[], count i64) i64:
+        return _write(fd, text, count as u32)
+    fn read(fd i32, text i8[], count i64) i64:
+        return _read(fd, text, count as u32)
+@else:
+    proto write(fd i32, text i8[], count i64) i64
+    proto read(fd i32, text i8[], count i64) i64
+
+mod io:
+    fn out(text String):
+        write(1, text.chars(), text.len() as i64)
+
+    fn err(text String):
+        write(2, text.chars(), text.len() as i64)
+
+    fn input() String:
+        line String
+        c i8[] = new<i8>(1)
+        while read(0, c, 1) == 1 and c[0] != '\n':
+            line.append(c[0] as char)
+        free<i8>(c)
+        return line
