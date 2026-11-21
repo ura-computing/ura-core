@@ -5,12 +5,12 @@
 <h1 align="center">ura-core</h1>
 
 <p align="center">
-  The core of <a href="https://github.com/mohammedhrima/ura-lang">ura</a>: growable arrays, strings, ranges, errors and the command line.<br>
+  The core of <a href="https://github.com/ura-computing/ura-lang">ura</a>: growable arrays, strings, ranges, errors and the command line.<br>
   Loaded by itself in every program that depends on it.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-2F74E8" alt="version 0.1.0">
+  <img src="https://img.shields.io/badge/version-0.0.1-2F74E8" alt="version 0.0.1">
   <img src="https://img.shields.io/badge/ura-standard%20library-2F74E8" alt="ura standard library">
   <img src="https://img.shields.io/badge/dependencies-none-555" alt="no dependencies">
   <img src="https://img.shields.io/badge/written%20in-ura-2F74E8" alt="written in ura">
@@ -80,13 +80,13 @@ reversed: ecarg
 ## Install
 
 ```
-ura install ura-core 0.1.0 https://github.com/mohammedhrima/ura-core
+ura install ura-core 0.0.1 https://github.com/ura-computing/ura-core
 ```
 
 This adds one line to your project's `ura.conf`. There's nothing to `use`: the core is loaded by itself.
 
 ```ura
-@dependency "ura-core" "0.1.0" "https://github.com/mohammedhrima/ura-core"
+@dependency "ura-core" "0.0.1" "https://github.com/ura-computing/ura-core"
 ```
 
 ## API quick reference
@@ -197,13 +197,13 @@ Array<T>                                   String  (struct String from Array<cha
 
 | Repo | Version | What | Depends on |
 |---|---|---|---|
-| **ura-core** | 0.1.0 | Array, String, Range, Error, Os | nothing |
-| [ura-posix](https://github.com/mohammedhrima/ura-posix) | 0.1.0 | the C library and the OS | ura-math |
-| [ura-math](https://github.com/mohammedhrima/ura-math) | 0.1.0 | C's math library | nothing |
-| [ura-graphics](https://github.com/mohammedhrima/ura-graphics) | 0.1.0 | SDL2, raylib, OpenGL | nothing |
+| **ura-core** | 0.0.1 | Array, String, Range, Error, Os | nothing |
+| [ura-posix](https://github.com/ura-computing/ura-posix) | 0.0.1 | the C library and the OS | ura-math |
+| [ura-math](https://github.com/ura-computing/ura-math) | 0.0.1 | C's math library | nothing |
+| [ura-graphics](https://github.com/ura-computing/ura-graphics) | 0.0.1 | SDL2, raylib, OpenGL | nothing |
 
 ---
 
 <p align="center">
-  Part of <a href="https://github.com/mohammedhrima/ura-lang">ura-lang</a>
+  Part of <a href="https://github.com/ura-computing/ura-lang">ura-lang</a>
 </p>
