@@ -10,5 +10,5 @@ struct Error:
         self.message = other.message
 
 fn uncaught(error &Error) i32:
-    errput(error.message.chars())
+    io::err(error.message)
     return 1
