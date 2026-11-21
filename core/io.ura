@@ -18,8 +18,7 @@ mod io:
 
     fn input() String:
         line String
-        c i8[] = new<i8>(1)
-        while read(0, c, 1) == 1 and c[0] != '\n':
-            line.append(c[0] as char)
-        free<i8>(c)
+        c char
+        while read(0, &c, 1) == 1 and c != '\n':
+            line.append(c)
         return line
