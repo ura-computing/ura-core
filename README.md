@@ -97,7 +97,8 @@ This adds one line to your project's `ura.conf`. There's nothing to `use`: the c
 | string | automatic | `String`, `String::create`, `+`, `upper`, `trim`, `find`, `replace`, `substr` | `struct String from Array<char>` |
 | range | automatic | `Range::create(0, 10)`, `Range::create(0, 10, 2)` | counts down when `stop < start` |
 | error | automatic | `Error::create(message)`, `throw`, `try` / `catch` | uncaught errors exit with code 1 |
-| os | automatic | `os.argc`, `os.argv` | `argv` is an `Array<String>` |
+| os | automatic | `os::argc`, `os::argv` | `mod os`; `argv` is an `Array<String>` |
+| io | automatic | `io::out(text)`, `io::err(text)`, `io::input()` | `mod io`, over `write` / `read` |
 | memory | automatic | `new<T>(count)`, `copy<T>`, `free<T>` | what `Array` is built on |
 
 <details>
@@ -159,7 +160,7 @@ Every `Array<char>` method works on a `String` too.
 | `Range::create(start, stop, step)` | with any step |
 | `Error::create(message String)` | an error to `throw` |
 | `uncaught(error &Error)` | prints an error nobody caught; `main` then exits with 1 |
-| `os.argc` / `os.argv` | the command line, as `i32` and `Array<String>` |
+| `os::argc` / `os::argv` | the command line, as `i32` and `Array<String>` |
 | `new<T>(count)` | `count` zeroed `T`s on the heap |
 | `copy<T>(dst, src, count)` | copies `count` elements |
 | `free<T>(data)` | frees what `new` gave |
