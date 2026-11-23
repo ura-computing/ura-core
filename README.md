@@ -80,13 +80,15 @@ reversed: ecarg
 ## Install
 
 ```
-ura install ura-core 0.0.1 https://github.com/ura-computing/ura-core
+ura deps add core@0.0.1
 ```
 
-This adds one line to your project's `ura.conf`. There's nothing to `use`: the core is loaded by itself.
+This adds one block to your project's `ura.conf`. There's nothing to `use`: the core is loaded by itself.
 
 ```ura
-@dependency "ura-core" "0.0.1" "https://github.com/ura-computing/ura-core"
+@dep "core":
+    @url "https://github.com/ura-computing/ura-core"
+    @version "0.0.1"
 ```
 
 ## API quick reference
