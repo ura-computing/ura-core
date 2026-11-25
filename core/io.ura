@@ -1,15 +1,15 @@
-@if os == "windows":
-    proto _write(fd i32, text i8[], count u32) i32
-    proto _read(fd i32, text i8[], count u32) i32
-    fn write(fd i32, text i8[], count i64) i64:
-        return _write(fd, text, count as u32)
-    fn read(fd i32, text i8[], count i64) i64:
-        return _read(fd, text, count as u32)
-@else:
-    proto write(fd i32, text i8[], count i64) i64
-    proto read(fd i32, text i8[], count i64) i64
-
 mod io:
+    @if os == "windows":
+        proto _write(fd i32, text i8[], count u32) i32
+        proto _read(fd i32, text i8[], count u32) i32
+        fn write(fd i32, text i8[], count i64) i64:
+            return _write(fd, text, count as u32)
+        fn read(fd i32, text i8[], count i64) i64:
+            return _read(fd, text, count as u32)
+    @else:
+        proto write(fd i32, text i8[], count i64) i64
+        proto read(fd i32, text i8[], count i64) i64
+
     fn out(text String):
         write(1, text.chars(), text.len() as i64)
 

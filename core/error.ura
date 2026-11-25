@@ -2,9 +2,10 @@ struct Error:
     message String
 
     pub fn create(message String) Error:
-        e Error
-        e.message = message
-        return e
+        return {
+            message: message    
+        }
+
 
 operator =(left &Error, right &Error):
     left.message = right.message

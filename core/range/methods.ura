@@ -1,0 +1,17 @@
+pub fn create(start i32, stop i32) Range:
+    r Range = {
+        start: start,
+        stop: stop,
+        step: 1
+    }
+    if stop < start:
+        r.step = -1
+    return r
+
+pub fn create(start i32, stop i32, step i32) Range:
+    r Range = {
+        start: start,
+        stop: stop,
+        step: step
+    }
+    return r

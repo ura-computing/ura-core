@@ -3,26 +3,6 @@ struct Range:
     stop i32
     step i32
 
-    pub fn create(start i32, stop i32) Range:
-        r Range
-        r.start = start
-        r.stop = stop
-        r.step = 1
-        if stop < start:
-            r.step = -1
-        return r
+    use "./range/methods"
 
-    pub fn create(start i32, stop i32, step i32) Range:
-        r Range
-        r.start = start
-        r.stop = stop
-        r.step = step
-        return r
-
-operator in(range &Range, i &i32, x &i32) bool:
-    x = range.start + i * range.step
-    done bool = (range.step > 0 and x >= range.stop) or (range.step < 0 and x <= range.stop)
-    if done:
-        return False
-    i += 1
-    return True
+use "./range/operators"
